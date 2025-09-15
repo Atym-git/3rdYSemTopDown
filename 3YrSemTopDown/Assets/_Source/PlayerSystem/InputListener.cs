@@ -9,14 +9,27 @@ public class InputListener : MonoBehaviour
 
     private InputAction _movement;
 
-
-
     private Invoker _invoker;
+
+    public void Construct(Invoker invoker)
+    {
+        _invoker = invoker;
+    }
 
     private void Start()
     {
         _inputActions = new InputSystem_Actions();
         Bind();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    private void OnDestroy()
+    {
+        Expose();
     }
 
     private void Bind()
@@ -25,17 +38,12 @@ public class InputListener : MonoBehaviour
         _movement.Enable();
 
         _inputActions.Player.Attack.performed += Shoot;
+        _inputActions.Player.Attack.Enable();
     }
 
     private void Shoot(InputAction.CallbackContext context)
     {
         _invoker.InvokeShoot();
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
-        ShootDirection();
     }
 
     private void Move()
@@ -44,23 +52,10 @@ public class InputListener : MonoBehaviour
         _invoker.InvokeMove(movement2D);
     }
 
-    private void ShootDirection()
-    {
-        _invoker.InvokeShootDirection(Input.mousePosition);
-    }
-
-    private void OnDestroy()
-    {
-        _movement.Disable();
-    }
-
     private void Expose()
     {
-            //_mainInputActions.Game.Shoot.performed -= Shoot;
+        _movement.Disable();
+        _inputActions.Player.Attack.Disable();
     }
 
-    public void Construct(Invoker invoker)
-    {
-        _invoker = invoker;
-    }
 }
