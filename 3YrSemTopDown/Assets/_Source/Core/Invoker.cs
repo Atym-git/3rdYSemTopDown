@@ -19,13 +19,13 @@ public class Invoker
         _playerMovement.Move(_playerData.Rb2D, movement2D, _playerData.MoveSpeed);
     }
 
-    public void InvokeShootDirection(Vector3 mousePosition)
-    {
-        _playerCombat.ShootDirection(mousePosition, Camera.main, _playerData.transform);
-    }
+    //public void InvokeShootDirection(Vector3 mousePosition)
+    //{
+    //    _playerCombat.ShootDirection(mousePosition, Camera.main, _playerData.transform, _playerData.AimTransform);
+    //}
     
     public void InvokeShoot()
     {
-        _playerCombat.Shoot(_playerData.BulletPrefab);
+        _playerCombat.Shoot(_playerData.BulletPrefab, Camera.main, _playerData.AimTransform, _playerData.BulletSpeed, _playerData.BulletLifeTime);
     }
 }
