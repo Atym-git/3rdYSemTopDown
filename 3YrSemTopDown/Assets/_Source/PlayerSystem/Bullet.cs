@@ -7,12 +7,18 @@ public class Bullet : MonoBehaviour
     public void Construct(float bulletLifeTime)
     {
         _bulletLifeTime = bulletLifeTime;
+        SelfDestruct();
     }
 
     private void OnEnable()
     {
-        Destroy(gameObject, _bulletLifeTime);
+        
         //ToDo: probably change destroy to objects pool
+    }
+
+    private void SelfDestruct()
+    {
+        Destroy(gameObject, _bulletLifeTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
