@@ -7,13 +7,13 @@ public class Reload : MonoBehaviour
     //private float _timeToReload;
     //private float _currTime;
 
-    private Ammo _playerAmmo;
+    //private Ammo _playerAmmo;
 
-    public void Construct(/*float timeToReload,*/
-                          Ammo playerAmmo )
-    {
-        _playerAmmo = playerAmmo;
-    }
+    //public void Construct(/*float timeToReload,*/
+    //                      Ammo playerAmmo )
+    //{
+    //    _playerAmmo = playerAmmo;
+    //}
 
     //public bool IsReloading { get; private set; } = false;
 

@@ -19,17 +19,18 @@ public class Ammo
 
     private TextMeshProUGUI _playerAmmoTMP;
     private PlayerUI _playerUI;
+    private CoroutineRunner _coroutineRunner;
 
     public Ammo(int maxAmmo,
                 int cellSize,
                 float reloadTime,
                 TextMeshProUGUI playerAmmoUI,
-                PlayerUI playerUI)
+                PlayerUI playerUI, 
+                CoroutineRunner coroutineRunner)
     {
         _maxAmmo = maxAmmo;
         _clipSize = cellSize;
         _reloadTime = reloadTime;
-        Debug.Log(_reloadTime);
 
         _currAmmo = _maxAmmo;
         if (_currAmmo < _clipSize)
@@ -40,8 +41,8 @@ public class Ammo
 
         _playerAmmoTMP = playerAmmoUI;
         _playerUI = playerUI;
-        long time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         _playerUI.ShowPlayerUI(_playerAmmoTMP, _ammoInClip, _middleSymbol, _currAmmo);
+        _coroutineRunner = coroutineRunner;
     }
 
     public bool IsReadyToShoot()
@@ -59,7 +60,6 @@ public class Ammo
             {
                 Reload();
             }
-            long time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             
             _playerUI.ShowPlayerUI(_playerAmmoTMP, _ammoInClip, _middleSymbol, _currAmmo);
         }
@@ -78,49 +78,18 @@ public class Ammo
             && !_isReloading)
             //&& _currAmmo < _clipSize)
         {
+            _coroutineRunner.RunCoroutine(Reloading());
             if (_currAmmo <= _clipSize)
             {
-                Debug.Log($"_currAmmo < _clipSize; doesn't wait {_reloadTime}" + _currAmmo);
                 _ammoInClip = _currAmmo;
 
             }
             if (_currAmmo > _clipSize)
-            {
-                Debug.Log($"_currAmmo > _clipSize; doesn't wait {_reloadTime}" + _currAmmo);
+            {   
                 _ammoInClip = _clipSize;
             }
         }
-
-        //if (_ammoInClip < _clipSize
-        //    && _currAmmo < _clipSize)
-        //{
-        //    Reloading();
-        //    Debug.Log($"_currAmmo < _clipSize; doesn't wait {_reloadTime}" + _currAmmo);
-        //    _ammoInClip = _currAmmo;
-        //}
-        //else if (_ammoInClip < _clipSize
-        //        && _currAmmo > _clipSize)
-        //{
-        //    Reloading();
-        //    Debug.Log($"_currAmmo > _clipSize; doesn't wait {_reloadTime}" + _currAmmo);
-        //    _ammoInClip = _clipSize;
-        //}
-
-        
     }
-
-    //private void Reloading()
-    //{
-    //    //while (_currTime < _reloadTime)
-    //    //{
-    //    //    long time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-    //    //    _isReloading = true;
-    //    //    _currTime += Time.deltaTime;
-    //    //    Debug.Log(_currTime);
-    //    //}
-    //    //_currTime = 0;
-    //    //_isReloading = false;
-    //}
 
     private IEnumerator Reloading()
     {

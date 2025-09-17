@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 7360702959337805461}
   - component: {fileID: 5784763370712923772}
   - component: {fileID: 2898564757156967782}
+  - component: {fileID: 7402694282136044427}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -486,6 +487,43 @@ MonoBehaviour:
   <Rb2D>k__BackingField: {fileID: 5784763370712923772}
   <BulletPrefab>k__BackingField: {fileID: 5888769115362247522, guid: 273086a507d48184fab0d3bebde289bc, type: 3}
   <AimTransform>k__BackingField: {fileID: 180442022845634200}
+--- !u!70 &7402694282136044427
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6871023751944958223}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &7103420692278557581
 GameObject:
   m_ObjectHideFlags: 0
