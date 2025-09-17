@@ -12,7 +12,11 @@ public class PlayerCombat
         Debug.Log(rotZ);
     }
 
-    public void Shoot(GameObject bulletPrefab, Camera worldCamera, Transform aimTransform, float bulletSpeed, float bulletLifeTime)
+    public void Shoot(GameObject bulletPrefab,
+                           Camera worldCamera,
+                       Transform aimTransform,
+                            float bulletSpeed,
+                         float bulletLifeTime)
     {
         Vector3 mouseWorldPos = worldCamera.ScreenToWorldPoint(Input.mousePosition);
 
