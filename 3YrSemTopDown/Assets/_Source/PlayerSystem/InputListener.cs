@@ -10,10 +10,12 @@ public class InputListener : MonoBehaviour
     private InputAction _movement;
 
     private Invoker _invoker;
+    private Pause _pause;
 
-    public void Construct(Invoker invoker)
+    public void Construct(Invoker invoker, Pause pause)
     {
         _invoker = invoker;
+        _pause = pause;
     }
 
     private void Start()
@@ -27,7 +29,7 @@ public class InputListener : MonoBehaviour
         Move();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         Expose();
     }
@@ -39,6 +41,14 @@ public class InputListener : MonoBehaviour
 
         _inputActions.Player.Attack.performed += Shoot;
         _inputActions.Player.Attack.Enable();
+
+        _inputActions.UI.Cancel.performed += PauseGame;
+        _inputActions.UI.Cancel.Enable();
+    }
+
+    private void PauseGame(InputAction.CallbackContext context)
+    {
+        _pause.PauseUnPauseGame();
     }
 
     private void Shoot(InputAction.CallbackContext context)
@@ -56,6 +66,7 @@ public class InputListener : MonoBehaviour
     {
         _movement.Disable();
         _inputActions.Player.Attack.Disable();
+        _inputActions.UI.Cancel.Disable();
     }
 
 }
