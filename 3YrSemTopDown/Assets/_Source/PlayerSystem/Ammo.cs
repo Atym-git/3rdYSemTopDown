@@ -97,4 +97,17 @@ public class Ammo
         yield return new WaitForSeconds(_reloadTime);
         _isReloading = false;
     }
+
+    public void RestoreBullets(int bulletsAmount)
+    {
+        if (_currAmmo < _maxAmmo)
+        {
+            if ((_currAmmo + bulletsAmount) > _maxAmmo)
+            {
+                bulletsAmount = _maxAmmo - _currAmmo;           
+            }
+            _currAmmo += bulletsAmount;
+            _playerUI.ShowPlayerUI(_playerAmmoTMP, _ammoInClip, _middleSymbol, _currAmmo);
+        }
+    }
 }

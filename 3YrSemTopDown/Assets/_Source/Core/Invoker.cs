@@ -30,11 +30,6 @@ public class Invoker
     //{
     //    _playerCombat.ShootDirection(mousePosition, Camera.main, _playerData.transform, _playerData.AimTransform);
     //}
-    
-    public void InvokeReload()
-    {
-
-    }
 
     public void InvokeShoot()
     {
@@ -44,7 +39,13 @@ public class Invoker
                                          Camera.main,
                                          _playerData.AimTransform,
                                          _playerData.BulletSpeed,
-                                         _playerData.BulletLifeTime);
+                                         _playerData.BulletLifeTime,
+                                         _playerData.BulletDamage);
         }
+    }
+
+    public void InvokeReload()
+    {
+
     }
 }

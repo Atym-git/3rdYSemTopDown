@@ -78,9 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6309391388fcf429917f3e7bcc8dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
+  playerData: {fileID: 2898564757156967782, guid: 66dd6b6632e3bba408beac92582836e0, type: 3}
   inputListener: {fileID: 3417028601034788841}
   coroutineRunner: {fileID: 2406731629413450035}
+  enemyData: {fileID: 1027428614104347329, guid: 84747aeec229eeb488a15c7be5f447d2, type: 3}
 --- !u!1 &4098382137922399704
 GameObject:
   m_ObjectHideFlags: 0
