@@ -27,7 +27,7 @@ public class PlayerHealth
     public void TakeDamage(float damage)
     {
         _currHealth -= damage;
-        if (_currHealth < 0)
+        if (_currHealth <= 0)
         {
             _currHealth = 0;
             Death();

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7465030459582002398}
   - component: {fileID: 212905849611508181}
   - component: {fileID: 1027428614104347329}
+  - component: {fileID: 6504088856856966434}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 932506247693987708, guid: 7a306eb1d477a9143a22f7c8ed4a6be4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,8 +155,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: 0.030840874}
+  m_Size: {x: 2.0485916, y: 3.3878412}
   m_Direction: 0
 --- !u!114 &1027428614104347329
 MonoBehaviour:
@@ -171,6 +172,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EnemyCurrHealth>k__BackingField: 0
   enemyChaseTrigger: {fileID: 5113131159314642546}
+  enemyCombat: {fileID: 6504088856856966434}
+--- !u!114 &6504088856856966434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574365488770268363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13897d1b857ee214e83ca6e9d2bb0fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &2752446023209860849
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +348,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.95, y: 0}
+  m_Offset: {x: -1.25, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -341,7 +358,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 2}
+  m_Size: {x: 0.9, y: 2.75}
   m_EdgeRadius: 0
 --- !u!1 &7135150991031345112
 GameObject:
@@ -409,7 +426,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.95, y: 0}
+  m_Offset: {x: 1.25, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -419,5 +436,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 2}
+  m_Size: {x: 0.9, y: 2.75}
   m_EdgeRadius: 0

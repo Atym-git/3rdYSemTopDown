@@ -54,4 +54,9 @@ public class PlayerData : MonoBehaviour
 
     [field: SerializeField]
     public Image RevivePanel { get; private set; }
+
+    public void Revive()
+    {
+        
+    }
 }

@@ -13,4 +13,7 @@ public class EnemySO : ScriptableObject
     [field: SerializeField]
     public float EnemyHealth { get; private set; }
     
+    [field: SerializeField]
+    public float EnemyDamage { get; private set; }
+    
 }

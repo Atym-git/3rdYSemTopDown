@@ -10,8 +10,6 @@ public class Consumable : MonoBehaviour
 
     private Ammo _playerAmmo;
 
-    
-
     public bool PlayerInsideTrigger { get; private set; }
 
     public void Construct(Ammo playerAmmo)

@@ -7,15 +7,18 @@ public class EnemyFabric
 {
     private GameObject _enemyPrefab;
     private Transform _enemyRootsParent;
+
+    private PlayerHealth _playerHealth;
     //private List<Transform> _enemyRoots = new();
 
     //private Sprite _enemySprite;
     //private float _enemyMoveSpeed;
 
-    public EnemyFabric(GameObject enemyPrefab, Transform enemyRootsParent)
+    public EnemyFabric(GameObject enemyPrefab, Transform enemyRootsParent, PlayerHealth playerHealth)
     {
         _enemyPrefab = enemyPrefab;
         _enemyRootsParent = enemyRootsParent;
+        _playerHealth = playerHealth;
     }
 
     public void InstantiateEnemy(EnemySO[] enemySOs)
@@ -27,9 +30,12 @@ public class EnemyFabric
                 GameObject enemyInstance = UnityEngine.Object.Instantiate(_enemyPrefab, _enemyRootsParent.GetChild(i));
                 EnemyData enemy = enemyInstance.GetComponent<EnemyData>();
                 int enemySOIndex = UnityEngine.Random.Range(0, enemySOs.Length);
+
                 enemy.Construct(enemySOs[enemySOIndex].EnemySprite,
                                          enemySOs[enemySOIndex].EnemyMoveSpeed,
-                                         enemySOs[enemySOIndex].EnemyHealth);
+                                         enemySOs[enemySOIndex].EnemyHealth,
+                                         enemySOs[enemySOIndex].EnemyDamage, 
+                                         _playerHealth);
             }
         }
         else
