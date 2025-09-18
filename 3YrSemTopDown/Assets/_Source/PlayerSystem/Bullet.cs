@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float _bulletLifeTime;
+    [SerializeField] private LayerMask enemyLayerMask;
 
-    public void Construct(float bulletLifeTime)
+    private float _bulletLifeTime;
+    private float _bulletSpeed;
+    private float _bulletDamage;
+
+    public void Construct(float bulletLifeTime, float bulletDamage)
     {
         _bulletLifeTime = bulletLifeTime;
+        _bulletDamage = bulletDamage;
         SelfDestruct();
     }
 
     private void OnEnable()
     {
-        
         //ToDo: probably change destroy to objects pool
     }
 
@@ -21,8 +25,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, _bulletLifeTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //ToDo: based on LayerMaskUtil check who got hit & call some voids
+        if (LayerMaskUtil.ContainsLayer(enemyLayerMask, collision.gameObject))
+        {
+            EnemyData enemyData = collision.GetComponent<EnemyData>();
+            EnemyHealth.TakeDamage(_bulletDamage, enemyData);
+            Destroy(gameObject);
+        }
     }
 }
