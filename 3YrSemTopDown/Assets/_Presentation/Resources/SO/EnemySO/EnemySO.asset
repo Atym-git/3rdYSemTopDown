@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b547647464b1641b97a040cc234166, type: 3}
   m_Name: EnemySO
   m_EditorClassIdentifier: 
-  <EnemySprite>k__BackingField: {fileID: 932506247693987708, guid: 7a306eb1d477a9143a22f7c8ed4a6be4, type: 3}
+  <EnemySprite>k__BackingField: {fileID: 6627898487812850179, guid: a7075ed897f5dc2488f4d5d267310d34, type: 3}
   <EnemyMoveSpeed>k__BackingField: 1
   <EnemyHealth>k__BackingField: 10
   <EnemyDamage>k__BackingField: 5

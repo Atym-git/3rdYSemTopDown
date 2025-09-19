@@ -33,10 +33,4 @@ public class EnemyData : MonoBehaviour
         enemyChaseTrigger.Construct(enemySpeed);
         enemyCombat.Construct(_playerHealth, _enemyDamage);
     }
-
-    //[field: SerializeField]
-    //public GameObject EnemyPrefab { get; private set; }
-
-    //[field: SerializeField]
-    //public Transform EnemyRootsParent { get; private set; }
 }

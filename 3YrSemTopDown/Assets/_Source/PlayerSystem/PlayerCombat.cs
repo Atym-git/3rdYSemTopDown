@@ -3,14 +3,6 @@ using UnityEngine;
 
 public class PlayerCombat
 {
-    //public void ShootDirection(Vector3 mouseScreenPos, Camera worldCamera, Transform playerTransform, Transform aimTransform)
-    //{
-    //    Vector3 mouseWorldPos = worldCamera.ScreenToWorldPoint(mouseScreenPos);
-    //    Vector3 aimDirection = (mouseWorldPos - playerTransform.position).normalized;
-    //    float rotZ = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-    //    aimTransform.rotation = Quaternion.Euler(0, 0, rotZ);
-    //}
-
     public void Shoot(GameObject bulletPrefab,
                            Camera worldCamera,
                        Transform aimTransform,
