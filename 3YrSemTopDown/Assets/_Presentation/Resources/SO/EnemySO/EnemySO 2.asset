@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32b547647464b1641b97a040cc234166, type: 3}
-  m_Name: EnemySO
+  m_Name: EnemySO 2
   m_EditorClassIdentifier: 
-  <EnemySprite>k__BackingField: {fileID: 932506247693987708, guid: 7a306eb1d477a9143a22f7c8ed4a6be4, type: 3}
+  <EnemySprite>k__BackingField: {fileID: 3924462828264744322, guid: 15c14c6f95998c8458799f05b6ba46d5, type: 3}
   <EnemyMoveSpeed>k__BackingField: 1
-  <EnemyHealth>k__BackingField: 10
+  <EnemyHealth>k__BackingField: 15
   <EnemyDamage>k__BackingField: 5
