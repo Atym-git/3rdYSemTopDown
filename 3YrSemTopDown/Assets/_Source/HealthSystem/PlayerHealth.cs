@@ -40,4 +40,10 @@ public class PlayerHealth
         _pause.PauseUnPauseGame();
         _revivePanel.gameObject.SetActive(true);
     }
+    public void Revive()
+    {
+        TakeDamage(-_maxHealth);
+        _pause.PauseUnPauseGame();
+        _revivePanel.gameObject.SetActive(false);
+    }
 }

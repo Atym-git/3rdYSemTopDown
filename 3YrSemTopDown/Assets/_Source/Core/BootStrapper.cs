@@ -51,7 +51,7 @@ public class BootStrapper : MonoBehaviour
 
         _invoker = new Invoker(_playerMovement, playerData, _playerCombat, _playerAmmo);
 
-        inputListener.Construct(_invoker, _pause);
+        inputListener.Construct(_invoker, _pause, _playerHealth);
         
         _enemyFabric = new EnemyFabric(enemyPrefab, enemyRootsParent, _playerHealth);
         _resourceLoader = new ResourceLoader(_enemyFabric);
