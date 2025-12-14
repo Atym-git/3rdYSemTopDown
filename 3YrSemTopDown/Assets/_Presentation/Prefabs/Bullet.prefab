@@ -169,3 +169,6 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  _bulletLifeTime: 3.5
+  _bulletSpeed: 7.5
+  _bulletDamage: 5

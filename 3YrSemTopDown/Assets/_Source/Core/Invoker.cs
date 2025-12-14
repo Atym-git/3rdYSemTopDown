@@ -35,12 +35,10 @@ public class Invoker
     {
         if (_playerAmmo.IsReadyToShoot())
         {
-            _playerCombat.Shoot(_playerData.BulletPrefab,
-                                         Camera.main,
-                                         _playerData.AimTransform,
-                                         _playerData.BulletSpeed,
-                                         _playerData.BulletLifeTime,
-                                         _playerData.BulletDamage);
+            _playerCombat.Shoot(/*_playerData.BulletPrefab,*/
+                Camera.main,
+                _playerData.AimTransform,
+                _playerData.BulletSpeed);
         }
     }
 

@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,48 +16,59 @@ public class BootStrapper : MonoBehaviour
 
     [SerializeField] private Image settingsPanel;
 
-    private PlayerMovement _playerMovement;
-    private PlayerHealth _playerHealth;
-    private PlayerCombat _playerCombat;
-    private Ammo _playerAmmo;
-    private PlayerUI _playerUI;
-
-    private EnemyHealth _enemyHealth;
-
-    private ResourceLoader _resourceLoader;
-    private EnemyFabric _enemyFabric;
-    private Pause _pause;
-    private Invoker _invoker;
-
     private void Awake()
     {
-        _playerMovement = new();
-        _playerCombat = new();
-        _playerUI = new();
+        Pause pause = new Pause(settingsPanel);
 
-        _enemyHealth = new();
+        #region PlayerInstaller
+        PlayerMovement playerMovement = new();
+        PlayerCombat playerCombat = new();
+        PlayerUI playerUI = new();
 
-        _pause = new Pause(settingsPanel);
+        PlayerHealth playerHealth = new PlayerHealth(playerData.PlayerHealth, playerData.HealthTMP, playerData.RevivePanel, pause);
 
-        _playerHealth = new PlayerHealth(playerData.PlayerHealth, playerData.HealthTMP, playerData.RevivePanel, _pause);
-
-        _playerAmmo = new Ammo(playerData.BulletsAmount,
+        Ammo playerAmmo = new Ammo(playerData.BulletsAmount,
                                playerData.ClipSize,
                                playerData.ReloadTime,
                                playerData.AmmoTMP,
-                               _playerUI,
+                               playerUI,
                                coroutineRunner);
 
-        _invoker = new Invoker(_playerMovement, playerData, _playerCombat, _playerAmmo);
+        #endregion
 
-        inputListener.Construct(_invoker, _pause, _playerHealth);
-        
-        _enemyFabric = new EnemyFabric(enemyPrefab, enemyRootsParent, _playerHealth);
-        _resourceLoader = new ResourceLoader(_enemyFabric);
+        #region EnemyInstaller
+
+        EnemyHealth _enemyHealth = new();
+
+        EnemyFabric enemyFabric = new EnemyFabric(enemyPrefab, enemyRootsParent, playerHealth);
+
+        #endregion
+
+        Invoker invoker = new Invoker(playerMovement, playerData, playerCombat, playerAmmo);
+
+        ResourceLoader resourceLoader = new ResourceLoader(enemyFabric);
+
+        inputListener.Construct(invoker, pause, playerHealth);
+
+        #region ConsumablesInstaller
 
         for (int i = 0; i < consumables.Count; i++)
         {
-            consumables[i].Construct(_playerAmmo);
+            consumables[i].Construct(playerAmmo);
         }
+
+        #endregion
+
+        #region BulletPool
+
+        BulletPoolSettings bulletPoolSettings = resourceLoader.LoadBulletPoolSettings();
+        bulletPoolSettings.Construct(playerData.BulletPrefab);
+
+        BulletFactory bulletFactory = new BulletFactory(bulletPoolSettings);
+
+        BulletPool bulletPool = new BulletPool(bulletPoolSettings, bulletFactory);
+
+        playerCombat.Construct(bulletPool);
+        #endregion
     }
 }

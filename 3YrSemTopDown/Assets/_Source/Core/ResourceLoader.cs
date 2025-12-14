@@ -1,4 +1,5 @@
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -22,5 +23,19 @@ public class ResourceLoader
             .Cast<EnemySO>()
             .ToArray();
         return enemySOs;
+    }
+
+    public BulletPoolSettings LoadBulletPoolSettings()
+    {
+        BulletPoolSettings[] settingsArray = Resources.LoadAll("SO/BulletPoolSO", typeof(BulletPoolSettings))
+            .Cast<BulletPoolSettings>()
+            .ToArray();
+        if (settingsArray.Length == 1)
+        {
+            BulletPoolSettings settings = settingsArray[0];
+            return settings;
+        }
+        Debug.LogWarning("Bullet pool settings instances aren't 1");
+        return null;
     }
 }

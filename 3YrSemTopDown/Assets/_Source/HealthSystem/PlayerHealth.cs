@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth
@@ -40,10 +41,9 @@ public class PlayerHealth
         _pause.PauseUnPauseGame();
         _revivePanel.gameObject.SetActive(true);
     }
+
     public void Revive()
     {
-        TakeDamage(-_maxHealth);
-        _pause.PauseUnPauseGame();
-        _revivePanel.gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

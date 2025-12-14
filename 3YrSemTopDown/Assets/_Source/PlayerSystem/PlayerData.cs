@@ -41,7 +41,7 @@ public class PlayerData : MonoBehaviour
     public Rigidbody2D Rb2D { get; private set; }
 
     [field: SerializeField]
-    public GameObject BulletPrefab { get; private set; }
+    public Bullet BulletPrefab { get; private set; }
 
     [field: SerializeField]
     public Transform AimTransform { get; private set; }
