@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 04eec99ceb342854da93ee2805dcf392
+guid: 443b2bac091781546b8b0fee5799d04f
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,7 +116,7 @@ TextureImporter:
       name: MobLeft_0
       rect:
         serializedVersion: 2
-        x: 79
+        x: 69
         y: 9
         width: 172
         height: 302

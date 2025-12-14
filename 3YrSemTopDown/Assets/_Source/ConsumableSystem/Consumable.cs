@@ -27,13 +27,4 @@ public class Consumable : MonoBehaviour
             //consumableTMP.gameObject.SetActive(true);
         }
     }
-    
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (LayerMaskUtil.ContainsLayer(playerLayerMask, collision.gameObject))
-        {
-            PlayerInsideTrigger = false;
-            //consumableTMP.gameObject.SetActive(false);
-        }
-    }
 }

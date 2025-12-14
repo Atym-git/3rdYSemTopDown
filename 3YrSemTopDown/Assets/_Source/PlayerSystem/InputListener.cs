@@ -11,11 +11,13 @@ public class InputListener : MonoBehaviour
 
     private Invoker _invoker;
     private Pause _pause;
+    private PlayerHealth _playerHealth;
 
-    public void Construct(Invoker invoker, Pause pause)
+    public void Construct(Invoker invoker, Pause pause, PlayerHealth playerHealth)
     {
         _invoker = invoker;
         _pause = pause;
+        _playerHealth = playerHealth;
     }
 
     private void Start()
@@ -46,7 +48,12 @@ public class InputListener : MonoBehaviour
         _inputActions.UI.Cancel.Enable();
     }
 
-    private void PauseGame(InputAction.CallbackContext context)
+    public void PauseGame(InputAction.CallbackContext context)
+    {
+        _pause.PauseUnPauseGame();
+    }
+    
+    public void PauseButtonGame()
     {
         _pause.PauseUnPauseGame();
     }
@@ -69,4 +76,8 @@ public class InputListener : MonoBehaviour
         _inputActions.UI.Cancel.Disable();
     }
 
+    public void ReviveByButton()
+    {
+        _playerHealth.Revive();
+    }
 }

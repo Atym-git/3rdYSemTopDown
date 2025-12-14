@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1ac3b10300cb80b418c3519b67acd804
+guid: 10591e3285702de43aa0c3ee346f6d18
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2067136683172170987
-    second: MobRight_0
+      213: -4345969612696422427
+    second: right_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MobRight_0
+      name: right_0
       rect:
         serializedVersion: 2
         x: 19
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bec08a67cd1ffac10800000000000000
-      internalID: 2067136683172170987
+      spriteID: 5e77696c9a300b3c0800000000000000
+      internalID: -4345969612696422427
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MobRight_0: 2067136683172170987
+      right_0: -4345969612696422427
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

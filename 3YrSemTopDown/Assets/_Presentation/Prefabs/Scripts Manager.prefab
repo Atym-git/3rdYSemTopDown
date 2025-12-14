@@ -82,8 +82,11 @@ MonoBehaviour:
   inputListener: {fileID: 3417028601034788841}
   coroutineRunner: {fileID: 2406731629413450035}
   enemyData: {fileID: 1027428614104347329, guid: 84747aeec229eeb488a15c7be5f447d2, type: 3}
-  enemyCombat: {fileID: 0}
-  consumable: {fileID: 0}
+  consumables:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   enemyRootsParent: {fileID: 0}
   enemyPrefab: {fileID: 574365488770268363, guid: 84747aeec229eeb488a15c7be5f447d2, type: 3}
   settingsPanel: {fileID: 0}
